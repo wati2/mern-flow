@@ -1,4 +1,4 @@
-# react-my-book
+# mern-flow
 
 #### 프로젝트 구조설계 잘 하기
 - Git-Flow
@@ -20,7 +20,7 @@
 - 메일서버?
 
 #### 로그인
-- 로그인 (Google, Facebook, Naver)
+- 로그인 (Google, Facebook, Naver, Kakao)
 - 생성된 계정으로 로그인 해보기
 
 #### 게시글 올리기
@@ -33,3 +33,5 @@
 - User ( 친구관계 정보 포함 )
 - Post
 - Reply
+
+#### Drag / Drop
