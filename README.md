@@ -1,7 +1,5 @@
 # mern-flow
-
-[20200730_064505](https://user-images.githubusercontent.com/58670931/88857042-83d10c00-d230-11ea-99ad-095751cea33a.jpg)
-
+<img width="461" alt="screen shot 20200730_064505" src="https://user-images.githubusercontent.com/58670931/88857042-83d10c00-d230-11ea-99ad-095751cea33a.jpg">
 
 #### 프로젝트 구조설계 잘 하기
 - Git-Flow
