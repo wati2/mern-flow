@@ -1,6 +1,6 @@
 # mern-flow
 
-<img width="461" alt="diagram" src="https://drive.google.com/file/d/12Zzqrko5rRS47RJA832w7Uc8tbrujLCd/view?usp=sharing">
+<img width="461" alt="diagram" src="https://drive.google.com/file/d/12Zzqrko5rRS47RJA832w7Uc8tbrujLCd">
 <img width="461" alt="screen shot 20200730_064505" src="https://user-images.githubusercontent.com/58670931/88857042-83d10c00-d230-11ea-99ad-095751cea33a.jpg">
 
 #### 프로젝트 구조설계 잘 하기
