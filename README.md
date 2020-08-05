@@ -1,6 +1,7 @@
 # mern-flow
 
 ## 다이어그램
+![image](https://user-images.githubusercontent.com/58670931/89399482-827e7280-d74d-11ea-8572-554f60257205.png)
 ![image](https://drive.google.com/uc?export=view&id=12Zzqrko5rRS47RJA832w7Uc8tbrujLCd)
 
 ## 논의
