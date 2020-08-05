@@ -9,6 +9,7 @@ app.get("/", (req, res) => {
   Post.find({}, function (err, post) {
     if (err) throw err
     // JSON 응답을 전송
+    console.log('JSON 응답')
     res.json(post)
   })
   // Post.find({})
