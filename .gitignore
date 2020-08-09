@@ -31,3 +31,7 @@ yarn-error.log*
 temp.js
 /idea
 .env
+
+# Test
+mongo_query
+test
