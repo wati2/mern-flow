@@ -3,60 +3,45 @@ const app = express()
 
 const { Post, Comment } = require("../database/mongo_schema")
 
-// view post list
-app.get("/", (req, res) => {
-  // mongoDB 데이터 읽어서 json으로 전달
-  Post.find({}, function (err, post) {
-    if (err) throw err
-    // JSON 응답을 전송
-    res.json(post)
-  })
-  // Post.find({})
-  //   .then((todo) => res.json(todo))
-  //   .catch((err) => console.log(err))
+// Post 목록 조회
+app.get("/", async (req, res) => {
+  try {
+    const findPost = await Post.find({})
+    res.json(findPost)
+  } catch (e) {
+    console.log(e)
+    res.send("error")
+  }
 })
 
-// create post, insert mongodb
-app.post("/", (req, res) => {
-  const post = new Post({
+// 새로운 Post, 글 생성
+app.post("/", async (req, res) => {
+  const addPost = new Post({
     content: req.body.content,
     author: req.body.author,
   })
 
-  post.save((err, post) => {
-    if (err) return console.log(err)
-    console.log(`========================================================`)
-    console.log(`_id: ${post._id}`)
-    console.log(`createdAt: ${post.createdAt}`)
-    console.log(`author: ${post.author}`)
-    console.log(`content: ${post.content}`)
-    console.log(`likeNum: ${post.likeNum}`)
-    console.log(`comments: ${post.comments}`)
-
-    // 저장이 된 시점에 response 보냄
-    res.send("create post, insert mongodb")
-  })
+  try {
+    const result = await addPost.save()
+    res.json(result)
+  } catch (e) {
+    console.log(e)
+  }
 })
 
-app.post("/addComment", (req, res) => {
-  // post의 _id 가져와서
-  // post 찾음
-  // 해당 post에 comment push 함
-
-  const _id = req.body._id
-  const author = req.body.author
-  const content = req.body.content
-
-  Post.find({ _id: _id }, (err, result) => {
-    if (err) return console.log(err)
-    console.log(result)
-  })
-
-  const comment = { author: "name" }
-  // post.comments.push(comment)
-  // post.save((err, post) => {
-  //   if (err) return console.log(err)
-  // })
+// post의 _id 전달 받음, 해당 post 찾음, 해당 post에 comment push 함
+app.post("/addComment", async (req, res) => {
+  try {
+    const _id = req.body._id
+    const author = req.body.author
+    const content = req.body.content
+    const comment = { author: author, content: content }
+    // returns Query
+    await Post.findOneAndUpdate({ _id: _id }, { $push: { comments: comment } })
+    res.send(`add comment & Updated _id: ${_id}`)
+  } catch (e) {
+    console.log(e)
+  }
 })
 
 module.exports = app
