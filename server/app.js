@@ -11,7 +11,7 @@ const app = express()
 const port = 3000
 
 const router = require("./router")
-const mongo_mongoose = require("./database/mongo")
+const mongo_mongoose = require("./database/mongo_connect")
 const { Mongoose } = require("mongoose")
 
 // Static FIle Service
