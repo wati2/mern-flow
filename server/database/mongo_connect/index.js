@@ -6,7 +6,11 @@ mongoose.Promise = global.Promise
 
 const MONGO_URI =
   "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false"
-const MONGO_OPTION = { useUnifiedTopology: true, useNewUrlParser: true }
+const MONGO_OPTION = {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useFindAndModify: false,
+}
 const MONGO_MESSAGE = "  # [mern-flow]: Successfully connected to mongodb"
 
 // Export 부분

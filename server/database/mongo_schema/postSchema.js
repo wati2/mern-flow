@@ -14,7 +14,7 @@ const postSchema = new mongoose.Schema(
   {
     author: { type: String, required: true },
     content: { type: String, required: true },
-    likeNum: { type: Number, default: 0 },
+    likeNum: { type: Number, required: true, default: 0 },
     comments: [commentSchemaModel],
   },
   {
