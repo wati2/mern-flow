@@ -27,15 +27,15 @@ yarn-debug.log*
 yarn-error.log*
 
 # SERVER 
+memo
+
 # server/router/root.js
 temp.js
 /idea
 .env
 
 #mongo_connect 폴더 중 index.js 제외
-mongo_connect/
-!mongo_connect/index.js
-!mongo_connect/make-config.js
+db-config.json
 
 # Test
 mongo_query
