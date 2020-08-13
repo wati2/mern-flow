@@ -13,30 +13,27 @@ class Posts extends Component {
         this.getPostList();
     }
 
-    getPostList = () => {
-        axios
-            .get("http://localhost:3001/post")
-            .then(response => {
-                console.log(response.data)
-                if(response.data) {
-                    const posts = response.data;
-                    const postList = posts.map((item, i) =>(
-                        
-                         <Post 
-                            key = {i}
-                            id = {item.id}
-                            title = {item.title}
-                            content = {item.content}
-                            comment = {item.comment}>
-                        </Post>
-                    )
-                    );
-                    this.setState({postList: postList})
-                    console.log(this.state.postList)
-                } else {
-                    alert("포스트 없음")
-                }
-            })
+    getPostList = async () => {
+        let response = await axios.get("http://localhost:3001/post")
+        console.log(response.data)
+        if(response.data) {
+            const posts = response.data;
+            const postList = await posts.map((item, i) =>(
+                    <Post 
+                    key = {i}
+                    id = {item.id}
+                    title = {item.title}
+                    content = {item.content}
+                    comment = {item.comment}>
+                </Post>
+            )
+            );
+            this.setState({postList: postList})
+            console.log(this.state.postList)
+        } else {
+            alert("포스트 없음")
+        }
+            
             
     }
     render(){
