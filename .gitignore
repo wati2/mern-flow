@@ -32,6 +32,11 @@ temp.js
 /idea
 .env
 
+#mongo_connect 폴더 중 index.js 제외
+mongo_connect/
+!mongo_connect/index.js
+!mongo_connect/make-config.js
+
 # Test
 mongo_query
 test
