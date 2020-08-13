@@ -1,23 +1,17 @@
 // Module
 const mongoose = require("mongoose")
-const makeConfig = require("./make-config")
 
-const accountInfo = makeConfig()
 // Mongoose Promise
 mongoose.Promise = global.Promise
 
-// Set account inff
-const username = accountInfo.username
-const password = accountInfo.password
-const dbname = accountInfo.dbname
-
-const MONGO_URI = `mongodb+srv://${username}:${password}@cluster0.0vgfg.azure.mongodb.net/${dbname}?retryWrites=true&w=majority`
+const MONGO_URI =
+  "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false"
 const MONGO_OPTION = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useFindAndModify: false,
 }
-const MONGO_MESSAGE = " [mern-flow] # Successfully connected to mongodb"
+const MONGO_MESSAGE = "  # [mern-flow]: Successfully connected to mongodb"
 
 // Export 부분
 const mongo_mongoose = {
@@ -34,11 +28,9 @@ const mongo_mongoose = {
       console.error.bind(console, "connection error:")
     )
     // 연결이 생성되면 콜백이 호출됨
-    mongoose.connection
-      .once("open", function () {
-        console.log(" [mern-flow] # mongoose.connection.once / callback")
-      })
-      .catch((e) => console.log(" [mern-flow] # error: " + e))
+    mongoose.connection.once("open", function () {
+      console.log("  # [mern-flow]: mongoose.connection.once / callback")
+    })
   },
 }
 
