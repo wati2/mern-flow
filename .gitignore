@@ -40,3 +40,4 @@ db-config.json
 # Test
 mongo_query
 test
+test.js
