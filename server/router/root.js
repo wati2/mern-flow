@@ -1,4 +1,4 @@
-const express = require("express")
+import express from "express"
 const app = express()
 
 // root page. redirect to page '/post'
@@ -7,4 +7,4 @@ app.get("/", (req, res) => {
   res.redirect("/post")
 })
 
-module.exports = app
+export default app

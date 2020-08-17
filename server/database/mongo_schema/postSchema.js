@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const { commentSchemaModel } = require("./commentSchema")
+import mongoose from "mongoose"
+import { commentSchema } from "./commentSchema.js"
 
 /**
  *  - Instagram 게시글 기준
@@ -15,12 +15,13 @@ const postSchema = new mongoose.Schema(
     author: { type: String, required: true },
     content: { type: String, required: true },
     likeNum: { type: Number, required: true, default: 0 },
-    comments: [commentSchemaModel],
+    comments: [commentSchema],
   },
   {
     timestamps: true,
   }
 )
 
-// exports
-module.exports = mongoose.model("Post", postSchema)
+const postSchemaModel = mongoose.model("Post", postSchema)
+
+export default postSchemaModel

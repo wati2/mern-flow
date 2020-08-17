@@ -1,10 +1,5 @@
-const postSchema = require("./postSchema")
-const { commentSchema, commentSchemaModel } = require("./commentSchema")
-const userSchema = require("./userSchema")
+import userSchemaModel from "./userSchema.js"
+import postSchemaModel from "./postSchema.js"
+import { commentSchemaModel, commentSchema } from "./commentSchema.js"
 
-module.exports = {
-  Post: postSchema,
-  Comment: commentSchema,
-  CommentModel: commentSchemaModel,
-  User: userSchema,
-}
+export { postSchemaModel, commentSchemaModel, userSchemaModel, commentSchema }

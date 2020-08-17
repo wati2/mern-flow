@@ -1,4 +1,9 @@
-const fs = require("fs")
+import fs from "fs"
+import { fileURLToPath } from "url"
+import { dirname } from "path"
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const mongo_config = {
   // 사용변수
@@ -59,4 +64,4 @@ const mongo_config = {
   },
 }
 
-module.exports = { mongo_config }
+export default mongo_config
