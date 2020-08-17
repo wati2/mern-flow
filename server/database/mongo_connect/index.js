@@ -1,6 +1,6 @@
 // Module
-const mongoose = require("mongoose")
-const { mongo_config } = require("./check-config")
+import mongoose from "mongoose"
+import mongo_config from "./check-config.js"
 
 // Mongoose Promise
 mongoose.Promise = global.Promise
@@ -27,4 +27,4 @@ const mongo_mongoose = {
   },
 }
 
-module.exports = mongo_mongoose
+export default mongo_mongoose

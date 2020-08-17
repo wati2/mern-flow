@@ -1,13 +1,13 @@
-const express = require("express")
+import express from "express"
 const app = express()
 
-const { Post, Comment } = require("../database/mongo_schema")
+import { postSchemaModel } from "../database/mongo_schema/index.js"
 
 // Post 목록 조회
 app.get("/", async (req, res) => {
   try {
-    const findPost = await Post.find({})
-    res.json(findPost)
+    const getAllPosts = await postSchemaModel.find({})
+    res.json(getAllPosts)
   } catch (e) {
     console.log(e)
     res.send("error")
@@ -16,13 +16,13 @@ app.get("/", async (req, res) => {
 
 // 새로운 Post, 글 생성
 app.post("/", async (req, res) => {
-  const addPost = new Post({
+  const addNewPost = new postSchemaModel({
     content: req.body.content,
     author: req.body.author,
   })
 
   try {
-    const result = await addPost.save()
+    const result = await addNewPost.save()
     res.json(result)
   } catch (e) {
     console.log(e)
@@ -37,11 +37,14 @@ app.post("/addComment", async (req, res) => {
     const content = req.body.content
     const comment = { author: author, content: content }
     // returns Query
-    await Post.findOneAndUpdate({ _id: _id }, { $push: { comments: comment } })
+    await postSchemaModel.findOneAndUpdate(
+      { _id: _id },
+      { $push: { comments: comment } }
+    )
     res.send(`add comment & Updated _id: ${_id}`)
   } catch (e) {
     console.log(e)
   }
 })
 
-module.exports = app
+export default app

@@ -1,19 +1,17 @@
 "use strict"
 
-// ENV
-require("dotenv").config()
-
 // DEPENDENCIES
-const express = require("express")
-const bodyParser = require("body-parser")
-const cors = require("cors")
+import express from "express"
+import bodyParser from "body-parser"
+import cors from "cors"
 
 const app = express()
 const port = 3001
 
-const router = require("./router")
-const mongo_mongoose = require("./database/mongo_connect")
-const { Mongoose } = require("mongoose")
+import router from "./router/index.js"
+import mongo_mongoose from "./database/mongo_connect/index.js"
+import pkg from "mongoose/index.js"
+const Mongoose = pkg
 
 // Static FIle Service
 app.unsubscribe(express.static("public"))
