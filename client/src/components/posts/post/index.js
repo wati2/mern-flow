@@ -1,24 +1,27 @@
-import React, { Component } from "react"
-import PostContent from "./postContent"
-import Comments from "./comments"
-import "./index.scss"
+import React, { Component } from 'react';
+import PostContent from '../postContent'
+import Comments from '../comments'
+class Post extends Component { 
+    
+    render() {
+        return(
 
-class Post extends Component {
-  render() {
-    return (
-      <div className="postWrap">
-        <PostContent
-          key={this.props._id}
-          author={this.props.author}
-          content={this.props.content}
-        ></PostContent>
-
-        <Comments
-          comment={this.props.comment}
-          createdAt={this.props.createdAt}
-        ></Comments>
-      </div>
-    )
-  }
+            <tr>
+            <hr/>
+                <tr>
+                    <PostContent
+                        key = {this.props.key}
+                        content = {this.props.content}>
+                    </PostContent>
+                </tr>
+                <tr>
+                    <Comments
+                        key = {this.props.key}
+                        comment = {this.props.comment}>
+                    </Comments>
+                </tr>
+          </tr>
+        );
+    }
 }
-export default Post
+export default Post;
