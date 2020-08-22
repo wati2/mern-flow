@@ -13,7 +13,10 @@ class Post extends Component {
           content={this.props.content}
         ></PostContent>
 
-        <Comments comment={this.props.comment}></Comments>
+        <Comments
+          comment={this.props.comment}
+          createdAt={this.props.createdAt}
+        ></Comments>
       </div>
     )
   }

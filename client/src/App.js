@@ -11,12 +11,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-
-      <PostInput />
-
-      <hr />
-
-      <Posts />
+      <div className="mainContent">
+        <PostInput />
+        <Posts />
+      </div>
     </div>
   )
 }

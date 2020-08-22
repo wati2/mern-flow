@@ -1,0 +1,42 @@
+div.addPost {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+form {
+  width: auto;
+  margin: 0 auto;
+
+  width: 100%;
+  input {
+    text-indent: 1rem;
+    border: none;
+    // border-radius: 0.5rem;
+    border-bottom: solid 2px dodgerblue;
+    // border-right: solid 2px dodgerblue;
+    width: 100%;
+    height: 2rem;
+    padding: 0;
+  }
+  input:focus {
+    background-color: paleturquoise;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 0.5rem 0;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  button:hover {
+    background-color: #ddd;
+    color: black;
+  }
+}
