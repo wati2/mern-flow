@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./index.scss"
-import axios from "axios";
+import axios from "axios"
 
 class PostPut extends Component {
   state = {
@@ -17,10 +17,12 @@ class PostPut extends Component {
       author: e.target.value,
     })
   }
-  btnPost = async() => {
+  btnPost = async () => {
     alert("작성자 : " + this.state.author + " \n내용 : " + this.state.content)
-    let response = await axios.post("http://localhost:3001/post", 
-    {author: this.state.author, content: this.state.content})
+    let response = await axios.post("http://localhost:3001/post", {
+      author: this.state.author,
+      content: this.state.content,
+    })
     console.log(response.request)
     if (response) {
       alert(response.data)
@@ -29,22 +31,19 @@ class PostPut extends Component {
 
   render() {
     return (
-      <div className="inputPost">
+      <div className="addPost">
         <form>
-          <input 
+          <input
             placeholder="작성자"
             value={this.state.author}
             onChange={this.authorChange}
           ></input>
-          <br />
-          <input className="inputContent"
+          <input
             placeholder="내용"
             value={this.state.content}
             onChange={this.contentChange}
           ></input>
-          <br />
-          <button onClick={this.btnPost}>로그인</button>
-          <div>안녕하세요</div>
+          <button onClick={this.btnPost}>Enter Post</button>
         </form>
       </div>
     )

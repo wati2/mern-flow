@@ -11,9 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.postsWrap {
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 400;
+.mainContent {
+  margin: 0 auto;
+  max-width: 614px;
+  width: 100%;
 }
