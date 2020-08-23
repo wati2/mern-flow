@@ -10,9 +10,10 @@ import {
 app.get("/", async (req, res) => {
   try {
     const getAllPosts = await postSchemaModel.find({}).exec()
-    console.log(" [mern-flow] # posts 목록조회")
+    console.log(" [mern-flow] # Get all posts list")
     res.json(getAllPosts)
   } catch (e) {
+    console.log(e)
     res.status(500).send(e)
   }
 })
@@ -28,6 +29,7 @@ app.post("/", async (req, res) => {
     const result = await addNewPost.save()
     res.json(result)
   } catch (e) {
+    console.log(e)
     res.status(500).send(e)
   }
 })
@@ -56,6 +58,7 @@ app.delete("/:_id", async (req, res) => {
       }
     }
   } catch (e) {
+    console.log(e)
     res.status(500).send(e)
   }
 })
@@ -74,6 +77,7 @@ app.post("/addComment", async (req, res) => {
     console.log(` [mern-flow] # add comment & Updated _id: ${_id}`)
     res.send(`add comment & Updated _id: ${_id}`)
   } catch (e) {
+    console.log(e)
     res.status(500).send(e)
   }
 })
@@ -91,11 +95,14 @@ app.delete("/:idPost/:idComment", async (req, res) => {
       .exec()
 
     // response
-    console.log(` [mern-flow] # delete comment by updated _id: ${_id}`)
+    console.log(
+      ` [mern-flow] # delete comment by updated idComment: ${idComment}`
+    )
     res.send(
       `delete comment by updated idPost: ${idPost}, idComment: ${idComment}`
     )
   } catch (e) {
+    console.log(e)
     res.status(500).send(e)
   }
 })

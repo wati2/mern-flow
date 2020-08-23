@@ -3,11 +3,7 @@ import Likecomp from "./likecomp"
 import "./index.scss"
 
 class PostContent extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  btnDelete = async (_id) => {
+  btnDelete = (_id) => {
     this.props.postDelete(_id)
   }
 
@@ -22,9 +18,7 @@ class PostContent extends Component {
             </button>
           </div>
           <div className="createdAt">Date: {this.props.createdAt}</div>
-          <Likecomp
-            _id={this.props._id}
-            likeNum={this.props.likeNum}/>
+          <Likecomp _id={this.props._id} likeNum={this.props.likeNum} />
         </div>
         <div className="content">{this.props.content}</div>
       </div>
