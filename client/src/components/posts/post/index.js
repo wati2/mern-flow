@@ -69,6 +69,7 @@ class Post extends Component {
           likeNum={this.props.likeNum}
           createdAt={this.props.createdAt}
           postDelete={this.props.postDelete}
+          incrementLikes={this.props.incrementLikes}
         ></PostContent>
         <div className="replysWrap">
           {/* 댓글 루프부분 */}
