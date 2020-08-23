@@ -2,10 +2,6 @@ import React, { Component } from "react"
 import "./index.scss"
 
 class Comments extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   commentDelete = (idPost, idComment) => {
     this.props.commentDelete(idPost, idComment)
   }

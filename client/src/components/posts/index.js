@@ -14,17 +14,21 @@ class Posts extends Component {
 
   postDelete = async (_id) => {
     const res = await axios.delete("http://localhost:3001/post/" + _id)
-    if (res.status == 200) {
+    if (res.status === 200) {
       await this.getPostList()
     }
   }
 
   commentDelete = async (idPost, idComment) => {
-    const res = await axios.delete(
-      `http://localhost:3001/post/${idPost}/${idComment}`
-    )
-    if (res.status == 200) {
-      await this.getPostList()
+    try {
+      const res = await axios.delete(
+        `http://localhost:3001/post/${idPost}/${idComment}`
+      )
+      if (res.status === 200) {
+        await this.getPostList()
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 

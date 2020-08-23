@@ -15,6 +15,12 @@ class Post extends Component {
     this.getReplyList()
   }
 
+  commentDelete = async (idPost, idComment) => {
+    await this.props.commentDelete(idPost, idComment)
+    // Re-Rendering 부분
+    await this.getReplyList()
+  }
+
   replyContentChange = (e) => {
     this.setState({
       replyContent: e.target.value,
@@ -36,14 +42,14 @@ class Post extends Component {
         author={item.author}
         content={item.content}
         createdAt={item.createdAt}
-        commentDelete={this.props.commentDelete}
+        commentDelete={this.commentDelete}
       ></Comments>
     ))
     // setState
     this.setState({ replyList: replyList })
   }
 
-  btnReply = async (_id, author, content) => {
+  addReply = async (_id, author, content) => {
     if (_id && author && content) {
       await axios.post("http://localhost:3001/post/addComment", {
         _id: _id,
@@ -81,7 +87,7 @@ class Post extends Component {
               ></input>
               <button
                 onClick={() =>
-                  this.btnReply(
+                  this.addReply(
                     this.props._id,
                     this.state.replyAuthor,
                     this.state.replyContent

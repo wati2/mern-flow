@@ -10,7 +10,7 @@ import {
 app.get("/", async (req, res) => {
   try {
     const getAllPosts = await postSchemaModel.find({}).exec()
-    console.log(" [mern-flow] # posts 목록조회")
+    console.log(" [mern-flow] # Get all posts list")
     res.json(getAllPosts)
   } catch (e) {
     console.log(e)

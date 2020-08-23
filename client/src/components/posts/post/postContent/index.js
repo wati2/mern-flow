@@ -3,10 +3,6 @@ import Likecomp from "./likecomp"
 import "./index.scss"
 
 class PostContent extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   btnDelete = (_id) => {
     this.props.postDelete(_id)
   }
