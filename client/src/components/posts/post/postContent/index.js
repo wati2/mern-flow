@@ -21,7 +21,10 @@ class PostContent extends Component {
             </button>
           </div>
         </div>
-        <div className="content">{this.props.content}</div>
+        <div className="content">
+          {this.props.content}
+          <div className="createdAt">Date: {this.props.createdAt}</div>
+        </div>
       </div>
     )
   }

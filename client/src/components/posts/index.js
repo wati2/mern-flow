@@ -29,7 +29,7 @@ class Posts extends Component {
         author={item.author}
         content={item.content}
         createdAt={item.createdAt}
-        comment={item.comments}
+        comments={item.comments}
         postDelete={this.postDelete}
       ></Post>
     ))
