@@ -1,17 +1,19 @@
 import express from "express"
 const app = express()
 
-import { postSchemaModel } from "../database/mongo_schema/index.js"
+import {
+  postSchemaModel,
+  commentSchemaModel,
+} from "../database/mongo_schema/index.js"
 
 // Post 목록 조회
 app.get("/", async (req, res) => {
   try {
-    const getAllPosts = await postSchemaModel.find({})
+    const getAllPosts = await postSchemaModel.find({}).exec()
     console.log(" [mern-flow] # posts 목록조회")
     res.json(getAllPosts)
   } catch (e) {
-    console.log(e)
-    res.send("error")
+    res.status(500).send(e)
   }
 })
 
@@ -26,7 +28,7 @@ app.post("/", async (req, res) => {
     const result = await addNewPost.save()
     res.json(result)
   } catch (e) {
-    console.log(e)
+    res.status(500).send(e)
   }
 })
 
@@ -53,9 +55,8 @@ app.delete("/:_id", async (req, res) => {
         res.send(`Delete post failed, _id: ${_id}`)
       }
     }
-  } catch (error) {
-    console.log(error)
-    res.send(`Error`)
+  } catch (e) {
+    res.status(500).send(e)
   }
 })
 
@@ -67,14 +68,35 @@ app.post("/addComment", async (req, res) => {
     const content = req.body.content
     const comment = { author: author, content: content }
     // returns Query
-    await postSchemaModel.findOneAndUpdate(
-      { _id: _id },
-      { $push: { comments: comment } }
-    )
+    await postSchemaModel
+      .findOneAndUpdate({ _id: _id }, { $push: { comments: comment } })
+      .exec()
     console.log(` [mern-flow] # add comment & Updated _id: ${_id}`)
     res.send(`add comment & Updated _id: ${_id}`)
   } catch (e) {
-    console.log(e)
+    res.status(500).send(e)
+  }
+})
+
+// delete comment one
+app.delete("/:idPost/:idComment", async (req, res) => {
+  try {
+    const idPost = req.params.idPost
+    const idComment = req.params.idComment
+    await postSchemaModel
+      .findOneAndUpdate(
+        { _id: idPost },
+        { $pull: { comments: { _id: idComment } } }
+      )
+      .exec()
+
+    // response
+    console.log(` [mern-flow] # delete comment by updated _id: ${_id}`)
+    res.send(
+      `delete comment by updated idPost: ${idPost}, idComment: ${idComment}`
+    )
+  } catch (e) {
+    res.status(500).send(e)
   }
 })
 
