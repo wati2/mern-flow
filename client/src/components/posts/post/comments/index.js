@@ -5,9 +5,9 @@ class Comments extends Component {
   render() {
     return (
       <div className="replyWrap">
-        <div className="author">{this.props.author}</div>
-        <div className="content">{this.props.content}</div>
-        <div className="createAt">{this.props.createdAt}</div>
+        <span className="createAt">{this.props.createdAt}</span>{" "}
+        <b className="author">{this.props.author}</b>{" "}
+        <span className="content">{this.props.content}</span>
       </div>
     )
   }

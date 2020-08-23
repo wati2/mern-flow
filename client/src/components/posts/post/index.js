@@ -36,10 +36,7 @@ class Post extends Component {
           createdAt={this.props.createdAt}
           postDelete={this.props.postDelete}
         ></PostContent>
-        <div className="replysWrap">
-          <b>댓글</b>
-          {this.state.replyList}
-        </div>
+        <div className="replysWrap">{this.state.replyList}</div>
       </div>
     )
   }

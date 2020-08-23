@@ -72,6 +72,7 @@ app.post("/addComment", async (req, res) => {
       { _id: _id },
       { $push: { comments: comment } }
     )
+    console.log(` [mern-flow] # add comment & Updated _id: ${_id}`)
     res.send(`add comment & Updated _id: ${_id}`)
   } catch (e) {
     console.log(e)

@@ -20,11 +20,9 @@ class PostContent extends Component {
               Delete this post
             </button>
           </div>
-        </div>
-        <div className="content">
-          {this.props.content}
           <div className="createdAt">Date: {this.props.createdAt}</div>
         </div>
+        <div className="content">{this.props.content}</div>
       </div>
     )
   }
