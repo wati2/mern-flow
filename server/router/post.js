@@ -107,4 +107,21 @@ app.delete("/:idPost/:idComment", async (req, res) => {
   }
 })
 
+app.post("/like", async (req, res) => {
+  try {
+    const _id = req.body._id
+    const post = await postSchemaModel.findById(_id).exec()
+    let likeNum = post.likeNum
+    likeNum++
+    const resUpdate = await postSchemaModel
+      .findOneAndUpdate({ _id: _id }, { likeNum: likeNum })
+      .exec()
+
+    console.log(` [mern-flow] # Likes updated as ${resUpdate.likeNum}`)
+    res.send(`Likes updated as ${resUpdate.likeNum}`)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 export default app

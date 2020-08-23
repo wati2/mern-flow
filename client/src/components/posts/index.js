@@ -32,6 +32,19 @@ class Posts extends Component {
     }
   }
 
+  incrementLikes = async (_idPost) => {
+    try {
+      const res = await axios.post("http://localhost:3001/post/like", {
+        _id: _idPost,
+      })
+      if (res.status === 200) {
+        await this.getPostList()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   getPostList = async () => {
     let response = await axios.get("http://localhost:3001/post")
     const posts = response.data
@@ -46,6 +59,7 @@ class Posts extends Component {
         likeNum={item.likeNum}
         postDelete={this.postDelete}
         commentDelete={this.commentDelete}
+        incrementLikes={this.incrementLikes}
       ></Post>
     ))
     // setState, re-render 되는 부분

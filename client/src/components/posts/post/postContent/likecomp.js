@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import "./index.scss"
 import like from "../../../../img/like-img.png"
+import "./index.scss"
+
 class Likecomp extends Component {
-  likeClick = (_id) => {
-    alert(_id)
+  likeClick = async (_id) => {
+    this.props.incrementLikes(_id)
   }
 
   render() {
