@@ -62,7 +62,6 @@ app.delete("/:_id", async (req, res) => {
 // post의 _id 전달 받음, 해당 post 찾음, 해당 post에 comment push 함
 app.post("/addComment", async (req, res) => {
   try {
-    req.paa
     const _id = req.body._id
     const author = req.body.author
     const content = req.body.content

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import "./index.scss"
 import axios from "axios"
+import "./index.scss"
 
 class PostPut extends Component {
   state = {
