@@ -22,7 +22,9 @@ class PostContent extends Component {
             </button>
           </div>
           <div className="createdAt">Date: {this.props.createdAt}</div>
-          <Likecomp likeNum={this.props.likeNum}/>
+          <Likecomp
+            _id={this.props._id}
+            likeNum={this.props.likeNum}/>
         </div>
         <div className="content">{this.props.content}</div>
       </div>
