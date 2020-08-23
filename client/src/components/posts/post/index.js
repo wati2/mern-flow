@@ -31,10 +31,12 @@ class Post extends Component {
     const replyList = await this.props.comments.map((item, i) => (
       <Comments
         key={item._id}
-        _id={item._id}
+        idPost={this.props._id}
+        idComment={item._id}
         author={item.author}
         content={item.content}
         createdAt={item.createdAt}
+        commentDelete={this.props.commentDelete}
       ></Comments>
     ))
     // setState
@@ -63,6 +65,7 @@ class Post extends Component {
           postDelete={this.props.postDelete}
         ></PostContent>
         <div className="replysWrap">
+          {/* 댓글 루프부분 */}
           {this.state.replyList}
           <div className="addComment">
             <form className="addReplyWrap">

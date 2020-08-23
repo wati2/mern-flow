@@ -10,3 +10,12 @@
 .author {
   color: yellow;
 }
+
+.button {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: brown;
+}

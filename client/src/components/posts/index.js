@@ -19,6 +19,15 @@ class Posts extends Component {
     }
   }
 
+  commentDelete = async (idPost, idComment) => {
+    const res = await axios.delete(
+      `http://localhost:3001/post/${idPost}/${idComment}`
+    )
+    if (res.status == 200) {
+      await this.getPostList()
+    }
+  }
+
   getPostList = async () => {
     let response = await axios.get("http://localhost:3001/post")
     const posts = response.data
@@ -31,7 +40,8 @@ class Posts extends Component {
         createdAt={item.createdAt}
         comments={item.comments}
         likeNum={item.likeNum}
-        // postDelete={this.postDelete}
+        postDelete={this.postDelete}
+        commentDelete={this.commentDelete}
       ></Post>
     ))
     // setState, re-render 되는 부분
