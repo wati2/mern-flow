@@ -22,7 +22,7 @@ class Posts extends Component {
   getPostList = async () => {
     let response = await axios.get("http://localhost:3001/post")
     const posts = response.data
-    const postList = await posts.map((item, i) => (
+    const postList = posts.map((item) => (
       <Post
         key={item._id}
         _id={item._id}
@@ -30,7 +30,8 @@ class Posts extends Component {
         content={item.content}
         createdAt={item.createdAt}
         comments={item.comments}
-        postDelete={this.postDelete}
+        likeNum={item.likeNum}
+        // postDelete={this.postDelete}
       ></Post>
     ))
     // setState, re-render 되는 부분

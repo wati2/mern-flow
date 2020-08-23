@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import Likecomp from "./likecomp"
 import "./index.scss"
 
 class PostContent extends Component {
@@ -21,6 +22,7 @@ class PostContent extends Component {
             </button>
           </div>
           <div className="createdAt">Date: {this.props.createdAt}</div>
+          <Likecomp likeNum={this.props.likeNum}/>
         </div>
         <div className="content">{this.props.content}</div>
       </div>

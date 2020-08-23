@@ -33,6 +33,7 @@ class Post extends Component {
           _id={this.props._id}
           author={this.props.author}
           content={this.props.content}
+          likeNum={this.props.likeNum}
           createdAt={this.props.createdAt}
           postDelete={this.props.postDelete}
         ></PostContent>
