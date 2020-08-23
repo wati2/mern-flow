@@ -8,9 +8,10 @@ class Post extends Component {
     return (
       <div className="postWrap">
         <PostContent
-          key={this.props._id}
+          _id={this.props._id}
           author={this.props.author}
           content={this.props.content}
+          postDelete={this.props.postDelete}
         ></PostContent>
 
         <Comments

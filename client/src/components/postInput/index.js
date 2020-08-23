@@ -7,26 +7,24 @@ class PostPut extends Component {
     author: "",
     content: "",
   }
+
   contentChange = (e) => {
     this.setState({
       content: e.target.value,
     })
   }
+
   authorChange = (e) => {
     this.setState({
       author: e.target.value,
     })
   }
+
   btnPost = async () => {
-    alert("작성자 : " + this.state.author + " \n내용 : " + this.state.content)
-    let response = await axios.post("http://localhost:3001/post", {
+    await axios.post("http://localhost:3001/post", {
       author: this.state.author,
       content: this.state.content,
     })
-    console.log(response.request)
-    if (response) {
-      alert(response.data)
-    }
   }
 
   render() {
