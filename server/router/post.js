@@ -9,7 +9,10 @@ import {
 // Post 목록 조회
 app.get("/", async (req, res) => {
   try {
-    const getAllPosts = await postSchemaModel.find({}).exec()
+    const getAllPosts = await postSchemaModel
+      .find({})
+      .sort({ createdAt: "desc" })
+      .exec()
     console.log(" [mern-flow] # Get all posts list")
     res.json(getAllPosts)
   } catch (e) {
