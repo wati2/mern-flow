@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Post from './Post'
-import PostInput from './PostInput/PostInput'
+import Post from './Post/Post'
 import './PostList.scss'
 
-class Posts extends Component {
+class PostList extends Component {
   state = {
     postList: [],
   }
@@ -68,13 +67,8 @@ class Posts extends Component {
   }
 
   render() {
-    return (
-      <>
-        <PostInput />
-        <div className="postsWrap">{this.state.postList}</div>
-      </>
-    )
+    return <div className="postsWrap">{this.state.postList}</div>
   }
 }
 
-export default Posts
+export default PostList

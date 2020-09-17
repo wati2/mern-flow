@@ -1,8 +1,8 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.scss'
-
-import Posts from './components/PostList/PostList.js'
+import PostInput from './components/PostInput/PostInput'
+import PostList from './components/PostList/PostList.js'
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div className="mainContent">
-        <Posts />
+        <PostInput />
+        <PostList />
       </div>
     </div>
   )
