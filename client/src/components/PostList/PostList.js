@@ -1,7 +1,8 @@
-import React, { Component } from "react"
-import axios from "axios"
-import Post from "./post"
-import "./index.scss"
+import React, { Component } from 'react'
+import axios from 'axios'
+import Post from './Post'
+import PostInput from './PostInput/PostInput'
+import './PostList.scss'
 
 class Posts extends Component {
   state = {
@@ -13,7 +14,7 @@ class Posts extends Component {
   }
 
   postDelete = async (_id) => {
-    const res = await axios.delete("http://localhost:3001/post/" + _id)
+    const res = await axios.delete('http://localhost:3001/post/' + _id)
     if (res.status === 200) {
       await this.getPostList()
     }
@@ -34,7 +35,7 @@ class Posts extends Component {
 
   incrementLikes = async (_idPost) => {
     try {
-      const res = await axios.post("http://localhost:3001/post/like", {
+      const res = await axios.post('http://localhost:3001/post/like', {
         _id: _idPost,
       })
       if (res.status === 200) {
@@ -46,7 +47,7 @@ class Posts extends Component {
   }
 
   getPostList = async () => {
-    let response = await axios.get("http://localhost:3001/post")
+    let response = await axios.get('http://localhost:3001/post')
     const posts = response.data
     const postList = posts.map((item) => (
       <Post
@@ -67,7 +68,12 @@ class Posts extends Component {
   }
 
   render() {
-    return <div className="postsWrap">{this.state.postList}</div>
+    return (
+      <>
+        <PostInput />
+        <div className="postsWrap">{this.state.postList}</div>
+      </>
+    )
   }
 }
 

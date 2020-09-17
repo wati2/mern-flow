@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import like from "../../../../img/like-img.png"
-import "./index.scss"
+import React, { Component } from 'react'
+import like from '../../../img/like-img.png'
+import './LikeComp.scss'
 
 class Likecomp extends Component {
   likeClick = async (_id) => {

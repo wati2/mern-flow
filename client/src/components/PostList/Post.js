@@ -1,14 +1,14 @@
-import React, { Component } from "react"
-import PostContent from "./postContent"
-import Comments from "./comments"
-import axios from "axios"
-import "./index.scss"
+import React, { Component } from 'react'
+import PostContent from './postContent/PostContent'
+import Comments from './postContent/Comments'
+import axios from 'axios'
+import './Post.scss'
 
 class Post extends Component {
   state = {
     replyList: [],
-    replyAuthor: "",
-    replyContent: "",
+    replyAuthor: '',
+    replyContent: '',
   }
 
   componentDidMount() {
@@ -51,7 +51,7 @@ class Post extends Component {
 
   addReply = async (_id, author, content) => {
     if (_id && author && content) {
-      await axios.post("http://localhost:3001/post/addComment", {
+      await axios.post('http://localhost:3001/post/addComment', {
         _id: _id,
         author: author,
         content: content,

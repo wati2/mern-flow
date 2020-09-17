@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import "./index.scss"
+import React, { Component } from 'react'
+import './Comments.scss'
 
 class Comments extends Component {
   commentDelete = (idPost, idComment) => {
@@ -17,8 +17,8 @@ class Comments extends Component {
         >
           삭제
         </span>
-        <span className="createAt">{this.props.createdAt}</span>{" "}
-        <b className="author">{this.props.author}</b>{" "}
+        <span className="createAt">{this.props.createdAt}</span>{' '}
+        <b className="author">{this.props.author}</b>{' '}
         <span className="content">{this.props.content}</span>
       </div>
     )

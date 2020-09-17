@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-import axios from "axios"
-import "./index.scss"
+import React, { Component } from 'react'
+import axios from 'axios'
+import './PostInput.scss'
 
 class PostPut extends Component {
   state = {
-    author: "",
-    content: "",
+    author: '',
+    content: '',
   }
 
   contentChange = (e) => {
@@ -21,7 +21,7 @@ class PostPut extends Component {
   }
 
   btnPost = async () => {
-    await axios.post("http://localhost:3001/post", {
+    await axios.post('http://localhost:3001/post', {
       author: this.state.author,
       content: this.state.content,
     })
