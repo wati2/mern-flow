@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import Likecomp from "./likecomp"
-import "./index.scss"
+import React, { Component } from 'react'
+import Likecomp from './LikeComp'
+import './PostContent.scss'
 
 class PostContent extends Component {
   btnDelete = (_id) => {
