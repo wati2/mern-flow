@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Post from './Post/Post'
-import PostInput from './PostInput/PostInput'
 import './PostList.scss'
 
 class PostList extends Component {
@@ -68,12 +67,7 @@ class PostList extends Component {
   }
 
   render() {
-    return (
-      <>
-        <PostInput />
-        <div className="postsWrap">{this.state.postList}</div>
-      </>
-    )
+    return <div className="postsWrap">{this.state.postList}</div>
   }
 }
 
