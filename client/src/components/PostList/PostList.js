@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Post from './Post'
+import Post from './Post/Post'
 import PostInput from './PostInput/PostInput'
 import './PostList.scss'
 

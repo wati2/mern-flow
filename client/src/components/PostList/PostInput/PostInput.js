@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './PostInput.scss'
 
-class PostPut extends Component {
+class PostInput extends Component {
   state = {
     author: '',
     content: '',
@@ -47,4 +47,4 @@ class PostPut extends Component {
     )
   }
 }
-export default PostPut
+export default PostInput

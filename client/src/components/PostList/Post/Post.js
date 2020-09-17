@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import PostContent from './postContent/PostContent'
-import Comments from './postContent/Comments'
+import PostContent from './PostContent'
+import Comments from './Comments'
 import axios from 'axios'
 import './Post.scss'
 
