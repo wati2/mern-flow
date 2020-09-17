@@ -4,7 +4,7 @@ import Post from './Post'
 import PostInput from './PostInput/PostInput'
 import './PostList.scss'
 
-class Posts extends Component {
+class PostList extends Component {
   state = {
     postList: [],
   }
@@ -77,4 +77,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts
+export default PostList
